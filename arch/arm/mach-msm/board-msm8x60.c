@@ -2362,10 +2362,10 @@ static struct lsm303dlh_acc_platform_data lsm303dlh_acc_pdata = {
 	.min_interval = LSM303DLH_ACC_MIN_POLL_PERIOD_MS,
 	.g_range = LSM303DLH_ACC_G_2G,
 #ifdef CONFIG_MACH_TENDERLOIN
-	.axis_map_x = 0,
-	.axis_map_y = 1,
+	.axis_map_x = 1,
+	.axis_map_y = 0,
 	.axis_map_z = 2,
-	.negate_x = 0,
+	.negate_x = 1,
 	.negate_y = 0,
 	.negate_z = 0,
 #else
@@ -2385,10 +2385,10 @@ static struct lsm303dlh_mag_platform_data lsm303dlh_mag_pdata = {
 	.min_interval = LSM303DLH_MAG_MIN_POLL_PERIOD_MS,
 	.h_range = LSM303DLH_MAG_H_8_1G,
 #ifdef CONFIG_MACH_TENDERLOIN
-	.axis_map_x = 0,
-	.axis_map_y = 1,
+	.axis_map_x = 1,
+	.axis_map_y = 0,
 	.axis_map_z = 2,
-	.negate_x = 0,
+	.negate_x = 1,
 	.negate_y = 0,
 	.negate_z = 0,
 #else
@@ -2420,8 +2420,8 @@ static struct i2c_board_info __initdata lsm303dlh_mag_i2c_board_info[] = {
 static struct mpu3050_platform_data mpu3050_data = {
         .int_config = 0x10,
 #ifdef CONFIG_MACH_TENDERLOIN
-        .orientation = {   1,  0,  0,
-                           0,  1,  0,
+        .orientation = {   0,  -1,  0,
+                           1,  0,  0,
                            0,  0,  1 },
 #else
         .orientation = {   1,  0,  0,
@@ -2434,8 +2434,8 @@ static struct mpu3050_platform_data mpu3050_data = {
                 .bus         = EXT_SLAVE_BUS_SECONDARY,
                 .address     = 0x18,
 #ifdef CONFIG_MACH_TENDERLOIN
-                .orientation = {  1,  0,  0,
-                                  0,  1,  0,
+                .orientation = {  0,  -1,  0,
+                                  1,  0,  0,
                                   0,  0,  1 },
 #else
                 .orientation = {   1,  0,  0,
@@ -2449,8 +2449,8 @@ static struct mpu3050_platform_data mpu3050_data = {
                 .bus         = EXT_SLAVE_BUS_PRIMARY,
                 .address     = 0x1E,
 #ifdef CONFIG_MACH_TENDERLOIN
-                .orientation = {  1,  0,  0,
-                                  0,  1,  0,
+                .orientation = {  0,  -1,  0,
+                                  1,  0,  0,
                                   0,  0,  1 },
 #else
                 .orientation = {  1,  0,  0,
